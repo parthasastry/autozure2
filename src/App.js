@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
+import Signup from "./components/Signup";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import ShowRoom from "./components/ShowRoom";
+import CarDetails from "./components/CarDetails";
+import SellCar from "./components/SellCar";
+import Footer from "./components/Footer";
+
+import { GlobalProvider } from "./context/GlobalState";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalProvider>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Hero />} />
+            <Route path="/buy" element={<ShowRoom />} />
+            <Route path="/:vin" element={<CarDetails />} />
+            <Route path="/sell" element={<SellCar />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
+          <Footer />
+        </Router>
+      </GlobalProvider>
+    </>
   );
-}
+};
 
 export default App;
