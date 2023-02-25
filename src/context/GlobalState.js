@@ -59,7 +59,7 @@ export const GlobalProvider = ({ children }) => {
           s3Data.push(obj);
         }
       }
-
+      console.log("s3Data: ", s3Data);
       dispatch({
         type: "GET_FILES",
         loading: true,
