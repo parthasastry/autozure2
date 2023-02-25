@@ -53,6 +53,7 @@ export const GlobalProvider = ({ children }) => {
         const obj = {};
         if (data.length > 2 && data[2] !== "") {
           const signedUrl = await Storage.get(k.key);
+          console.log("signedIrl: ", signedUrl);
           obj["vin"] = data[0];
           obj["fileType"] = data[1];
           obj["signedUrl"] = signedUrl;
