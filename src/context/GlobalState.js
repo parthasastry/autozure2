@@ -44,7 +44,7 @@ export const GlobalProvider = ({ children }) => {
   const getFiles = async () => {
     try {
       let files = await Storage.list("", { level: "public" });
-
+      console.log("Storage.list files: ", files);
       const s3Data = [];
       for (let i = 0; i < files.results.length; i++) {
         const k = files.results[i];
