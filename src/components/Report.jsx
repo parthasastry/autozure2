@@ -1,14 +1,11 @@
 const Report = ({ type, reports }) => {
-  console.log("in carfax");
-  console.log("carfax array: ", reports);
-
   return (
     <>
       <div>
         {reports && reports.length > 0
-          ? reports.map((cf) => {
+          ? reports.map((cf, index) => {
               return (
-                <div>
+                <div key={index}>
                   <button className="bg-[#7734eb] hover:bg-[#7734ez] text-white font-bold my-2 py-2 px-4 rounded text-center">
                     <a
                       href={cf.signedUrl}

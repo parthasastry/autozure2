@@ -44,7 +44,7 @@ export const GlobalProvider = ({ children }) => {
   const getFiles = async () => {
     try {
       let files = await Storage.list("", { level: "public" });
-      console.log("Storage.list files: ", files);
+
       const s3Data = [];
       for (let i = 0; i < files.results.length; i++) {
         const k = files.results[i];
@@ -53,14 +53,14 @@ export const GlobalProvider = ({ children }) => {
         const obj = {};
         if (data.length > 2 && data[2] !== "") {
           const signedUrl = await Storage.get(k.key);
-          console.log("signedIrl: ", signedUrl);
+
           obj["vin"] = data[0];
           obj["fileType"] = data[1];
           obj["signedUrl"] = signedUrl;
           s3Data.push(obj);
         }
       }
-      console.log("s3Data: ", s3Data);
+
       dispatch({
         type: "GET_FILES",
         loading: true,

@@ -1,6 +1,4 @@
 export const processFiles = (vin, files) => {
-  console.log("in processfiles");
-
   const img = [];
   const cf = [];
   const insp = [];
@@ -22,8 +20,6 @@ export const processFiles = (vin, files) => {
       }
     }
   });
-
-  console.log("carfax from S3: ", cf);
 
   return {
     vin: vin,
