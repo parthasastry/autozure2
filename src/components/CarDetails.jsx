@@ -37,7 +37,7 @@ const CarDetails = () => {
     <>
       <div className="w-full pt-20 min-h-screen">
         <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold my-2 py-2 px-4 rounded text-center">
-          <Link to="/">Go Back</Link>
+          <Link to="/buy">Go Back</Link>
         </button>
         {carData && carData.length > 0 ? (
           <div className="grid md:grid-cols-4 gap-3 p-4">
